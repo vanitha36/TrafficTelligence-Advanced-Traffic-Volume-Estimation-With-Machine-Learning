@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Traffic Volume Estimation</title>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1508835283965-9685255f6b42?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      background: #28a745;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Traffic Volume Estimator</h1>
+  <form action="/predict" method="POST">
+    <!-- Numeric inputs -->
+    <label>Temperature:</label>
+    <input type="number" step="any" name="temp" placeholder="Temperature" required />
+
+    <label>Rain:</label>
+    <input type="number" step="any" name="rain" placeholder="Rain" required />
+
+    <label>Snow:</label>
+    <input type="number" step="any" name="snow" placeholder="Snow" required />
+
+    <label>Year:</label>
+    <input type="number" name="year" min="2000" max="2100" required />
+
+    <label>Month:</label>
+    <input type="number" name="month" min="1" max="12" required />
+
+    <label>Day:</label>
+    <input type="number" name="day" min="1" max="31" required />
+
+    <label>Hour:</label>
+    <input type="number" name="hour" min="0" max="23" required />
+
+    <label>Minute:</label>
+    <input type="number" name="minute" min="0" max="59" required />
+
+    <!-- Weather dropdown -->
+    <label>Weather:</label>
+    <select name="weather" required>
+      <option value="Clouds">Clouds</option>
+      <option value="Drizzle">Drizzle</option>
+      <option value="Fog">Fog</option>
+      <option value="Haze">Haze</option>
+      <option value="Mist">Mist</option>
+      <option value="Rain">Rain</option>
+      <option value="Smoke">Smoke</option>
+      <option value="Snow">Snow</option>
+      <option value="Squall">Squall</option>
+      <option value="Thunderstorm">Thunderstorm</option>
+    </select>
+
+    <!-- Holiday dropdown -->
+    <label>Holiday:</label>
+    <select name="holiday" required>
+      <option value="Columbus Day">Columbus Day</option>
+      <option value="Independence Day">Independence Day</option>
+      <option value="Labor Day">Labor Day</option>
+      <option value="Martin Luther King Jr Day">Martin Luther King Jr Day</option>
+      <option value="Memorial Day">Memorial Day</option>
+      <option value="New Years Day">New Years Day</option>
+      <option value="State Fair">State Fair</option>
+      <option value="Thanksgiving Day">Thanksgiving Day</option>
+      <option value="Veterans Day">Veterans Day</option>
+      <option value="Washingtons Birthday">Washingtons Birthday</option>
+    </select>
+
+    <button type="submit">Predict</button>
+  </form>
+</body>
+</html>
